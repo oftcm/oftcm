@@ -13,7 +13,7 @@ const Footer = () => {
         </div>
       </div>
       <a 
-        href="#top" 
+        href="" 
         className="back-to-top button icon invert plain fixed bottom z-1 is-outline hide-for-medium circle" 
         id="top-link"
         style={{
@@ -21,6 +21,7 @@ const Footer = () => {
           justifyContent: "center",
           alignItems: "center",
         }}
+         onClick={() => window.scrollTo(0, 0)}
       >
         <div className="icon__footer"></div>
       </a>
@@ -41,7 +42,7 @@ const FooterSecondary = () => {
 const FooterPrimary = () => {
   const location = useLocation();
 
-  const isHomePage = location.pathname === '/';
+  const isHomePage = location.pathname === '/home';
 
   return (
     <div className="footer-primary pull-left">
@@ -52,7 +53,8 @@ const FooterPrimary = () => {
               className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7344"
               key={n.id}
             >
-              <a href={isHomePage ? n.to : `home${n.to}`}>{n.text}</a>
+              <a href={n.to}>{n.text}</a>
+              {/* <a href={isHomePage ? n.to : `home${n.to}`}>{n.text}</a> */}
             </li>
           ))}
         </ul>

@@ -65,11 +65,20 @@ const Header = () => {
                     className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7344 menu-item-design-default"
                     key={n.id}
                   >
-                    <a href={isHomePage ? n.to : `/home${n.to}`} className="nav-top-link">
+                    <a href={n.to} className="nav-top-link">
+                    {/* <a href={isHomePage ? n.to : `/home${n.to}`} className="nav-top-link"> */}
                       {n.text}
                     </a>
                   </li>
                 ))}
+                <li
+                    className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7344 menu-item-design-default"
+                  >
+                    <a href="#about-us" className="nav-top-link">
+                    {/* <a href={isHomePage ? n.to : `/home${n.to}`} className="nav-top-link"> */}
+                      about us
+                    </a>
+                  </li>
               </ul>
             </div>
 
