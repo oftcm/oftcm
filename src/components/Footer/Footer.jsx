@@ -52,7 +52,7 @@ const FooterPrimary = () => {
               className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7344"
               key={n.id}
             >
-              <a href={isHomePage ? n.to : `/home${n.to}`}>{n.text}</a>
+              <a href={isHomePage ? n.to : `home${n.to}`}>{n.text}</a>
             </li>
           ))}
         </ul>
