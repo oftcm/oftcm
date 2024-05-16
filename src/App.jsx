@@ -12,10 +12,12 @@ export const App = () => {
       <Header />
 
       <Routes>
-        <Route path="/" element={<MainPage />} />
         {/* <Route path="/home" element={<MainPage />} />
         <Route path="/" element={<Navigate to="/home" replace />} /> */}
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        {/* <Route path="*" element={<MainPage />} />
+        <Route path="/" element={<Header />} /> */}
+        
       </Routes>
 
       <Footer />

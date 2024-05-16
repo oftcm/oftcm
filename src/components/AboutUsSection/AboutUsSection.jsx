@@ -1,6 +1,5 @@
 import React from 'react';
 import "./AboutUsSection.scss";
-import { Link } from 'react-router-dom';
 
 const AboutUsSection = () => {
   return (
@@ -14,8 +13,8 @@ const AboutUsSection = () => {
         <div className="row row-large align-middle" id="row-1568837545">
           <div className="col small-12 large-12">
             <div className="col-inner text-left">
-              <span className="scroll-to">
-                <Link name="about-us"></Link>
+            <span className="scroll-to" data-label="Scroll to: #about-us" data-bullet="true" data-link="#about-us" data-title="About Us">
+                <a name="about-us"></a>
               </span>
               <h2 className="uppercase">Who we are?</h2>
               <p>

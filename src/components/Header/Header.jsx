@@ -1,7 +1,15 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import { nav } from '../../consts';
+import { nav, policyContent } from '../../consts';
 import "./Header.scss";
+import Banner from '../Banner/Banner';
+import ServiceSection from '../ServiceSection/ServiceSection';
+import AboutUsSection from '../AboutUsSection/AboutUsSection';
+import WhatWeDoSection from '../WhatWeDoSection/WhatWeDoSection';
+import WholesaleVoiceSection from '../WholesaleVoiceSection/WholesaleVoiceSection';
+import DIDServicesSection from '../DIDServicesSection/DIDServicesSection';
+import SMSServicesSection from '../SMSServicesSection/SMSServicesSection';
+import ContactSection from '../ContactSection/ContactSection';
 
 const Header = () => {
   const location = useLocation();
@@ -9,6 +17,7 @@ const Header = () => {
   const isHomePage = location.pathname === '/';
 
   return (
+    <>
     <header id="header" className="header has-sticky sticky-jump" style={{ backgroundColor: "#fff" }}>
       <div className="header-wrapper">
         <div id="masthead" className="header-main">
@@ -65,20 +74,12 @@ const Header = () => {
                     className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7344 menu-item-design-default"
                     key={n.id}
                   >
-                    <a href={n.to} className="nav-top-link">
-                    {/* <a href={isHomePage ? n.to : `/home${n.to}`} className="nav-top-link"> */}
+                    {/* <a href={n.to} className="nav-top-link"> */}
+                    <a href={isHomePage ? n.to : `/`} className="nav-top-link">
                       {n.text}
                     </a>
                   </li>
                 ))}
-                <li
-                    className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7344 menu-item-design-default"
-                  >
-                    <a href="#about-us" className="nav-top-link">
-                    {/* <a href={isHomePage ? n.to : `/home${n.to}`} className="nav-top-link"> */}
-                      about us
-                    </a>
-                  </li>
               </ul>
             </div>
 
@@ -102,6 +103,61 @@ const Header = () => {
 
       </div>
     </header>
+
+    {isHomePage ? (
+      <main id="main">
+      <div id="content" role="main" className="content-area">
+        <Banner />
+
+        <ServiceSection />
+
+        <div id='about-us'>
+          <AboutUsSection />
+        </div>
+
+        <div id='products'>
+          <WhatWeDoSection />
+        </div>
+
+        <WholesaleVoiceSection />
+
+        <DIDServicesSection />
+
+        <SMSServicesSection />
+
+        <div id="contact">
+          <ContactSection />
+        </div>
+      </div>
+    </main>
+    ) : (
+      <main id="main">
+      <div id="content" className="content-area page-wrapper" role="main">
+        <div className="row row-main">
+          <div className="large-12 col">
+            <div className="col-inner">
+
+             <h1 style={{ color: "#223268" }}>Privacy Policy</h1>
+
+             <div>
+                {policyContent.map((section, index) => {
+                  if (section.type === 'header') {
+                    const HeaderTag = `h${section.level}`;
+                    return <HeaderTag key={index} style={{ fontSize: '18px', lineHeight: '30px', color: "#223268" }}>{section.text}</HeaderTag>;
+                  } else if (section.type === 'paragraph') {
+                    return <p key={index}>{section.text}</p>;
+                  } else {
+                    return null;
+                  }
+                })}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    )}
+    </>
   );
 };
 
