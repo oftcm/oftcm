@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import "./Banner.scss";
 
 const Banner = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  const getStyles = () => {
+    if (windowWidth < 600) {
+      return {
+        maxWidth: "300px",
+      };
+    }
+  };
+
   return (
     <div className="slider-wrapper relative" id="slider-1851130405">
       <div
@@ -36,7 +57,8 @@ const Banner = () => {
               <div className="fill banner-link"></div>
               <div
                 id="text-box-1138880014"
-                className="text-box banner-layer x50 md-x5 lg-x5 y10 md-y50 lg-y50 res-text"
+                className="text-box banner-layer md-x5 lg-x5 y10 md-y50 lg-y50 res-text"
+                style={getStyles()}
               >
                 <div className="text box-shadow-1">
                   <div className="text-inner text-left">
@@ -44,7 +66,9 @@ const Banner = () => {
                     <h3 className="uppercase">
                       <strong>Worldwide connectivity with a local power</strong>
                     </h3>
-                    <p>
+                    <p style={{
+                      fontSize: "17px",
+                    }} >
                       Increase your competitiveness by taking advantage of our local direct routes
                       and global reach.<br />
                       Get highest quality of service at competitive pricing.<br />

@@ -17,11 +17,11 @@ const WhatWeDoSection = () => {
   }, []);
 
   return (
-    <section className="section" id="section_1375173675">
+    <section className="section" id="section_1375173675" style={{ marginBlock: "-20xp" }} >
       <div className="bg section-bg fill bg-fill bg-loaded">
         {isLoading && <div className="loading-spin dark large centered"></div>}
         <div className="section-bg-overlay absolute fill" style={{ backgroundColor: 'rgba(255, 255, 255, 0.85)' }}></div>
-        <div className="is-border" style={{ borderWidth: '1px 0px 1px 0px' }}></div>
+        <div className="is-border" ></div>
       </div>
 
       <div className="section-content relative">
