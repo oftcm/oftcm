@@ -35,7 +35,6 @@ const SMSServicesSection = () => {
                   <img
                     width="340"
                     height="158"
-                    src="https://offisttelecom.com/wp-content/uploads/2023/04/Service-03.png"
                     className="attachment-large size-large"
                     alt=""
                     decoding="async"

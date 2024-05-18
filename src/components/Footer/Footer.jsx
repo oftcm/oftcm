@@ -1,9 +1,18 @@
 import React from 'react';
 import { nav } from '../../consts';
 import "./Footer.scss";
-import { Link, useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
+import { animateScroll as scroll, scroller } from 'react-scroll';
 
 const Footer = () => {
+  const handleBackToTop = () => {
+    scroll.scrollToTop({
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart',
+    });
+  };
+
   return (
     <footer id="footer" className="footer-wrapper">
       <div className="absolute-footer dark medium-text-center small-text-center">
@@ -12,19 +21,18 @@ const Footer = () => {
           <FooterPrimary />
         </div>
       </div>
-      <a 
-        href="" 
-        className="back-to-top button icon invert plain fixed bottom z-1 is-outline hide-for-medium circle" 
+      <button
+        className="back-to-top button icon invert plain fixed bottom z-1 is-outline hide-for-medium circle"
         id="top-link"
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
         }}
-         onClick={() => window.scrollTo(0, 0)}
+        onClick={handleBackToTop}
       >
         <div className="icon__footer"></div>
-      </a>
+      </button>
     </footer>
   );
 };
@@ -42,7 +50,13 @@ const FooterSecondary = () => {
 const FooterPrimary = () => {
   const location = useLocation();
 
-  const isHomePage = location.pathname === '/home';
+  const isHomePage = location.pathname === '/';
+
+  const nav = [
+    { id: '1', to: 'about-us', text: 'About Us' },
+    { id: '2', to: 'products', text: 'Products' },
+    { id: '3', to: 'contact', text: 'Contact' },
+  ];
 
   return (
     <div className="footer-primary pull-left">
@@ -53,8 +67,20 @@ const FooterPrimary = () => {
               className="menu-item menu-item-type-custom menu-item-object-custom menu-item-7344"
               key={n.id}
             >
-              <a href={n.to}>{n.text}</a>
-              {/* <a href={isHomePage ? n.to : `home${n.to}`}>{n.text}</a> */}
+              <Link
+                to={`/#${n.to}`}
+                onClick={() => {
+                  if (isHomePage) {
+                    scroller.scrollTo(n.to, {
+                      duration: 800,
+                      delay: 0,
+                      smooth: 'easeInOutQuart',
+                    });
+                  }
+                }}
+              >
+                {n.text}
+              </Link>
             </li>
           ))}
         </ul>

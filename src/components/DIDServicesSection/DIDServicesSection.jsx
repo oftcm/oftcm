@@ -12,12 +12,11 @@ const DIDServicesSection = () => {
         <div className="row row-large align-middle" id="row-1051316524">
           <div className="col medium-5 small-12 large-5">
             <div className="col-inner">
-              <div className="img has-hover x md-x lg-x y md-y lg-y">
+              <div className="img has-hover x md-x lg-x y md-y lg-y" id='image_543'>
                 <div className="img-inner box-shadow-2 dark">
                   <img
                     width="340"
                     height="158"
-                    src="https://offisttelecom.com/wp-content/uploads/2023/04/Service-01.png"
                     className="attachment-large size-large"
                     alt=""
                     decoding="async"
