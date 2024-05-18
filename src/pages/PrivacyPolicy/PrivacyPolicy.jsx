@@ -2,7 +2,7 @@ import { policyContent } from "../../consts";
 
 export const PrivacyPolicy = () => {
   return (
-    <main id="main">
+    <main id="main" style={{ padding: "10px !important" }}>
       <div id="content" className="content-area page-wrapper" role="main">
         <div className="row row-main">
           <div className="large-12 col">

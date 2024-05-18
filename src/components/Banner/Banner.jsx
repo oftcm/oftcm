@@ -1,5 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import "./Banner.scss";
+import styled from 'styled-components';
+
+const BannerWrapper = styled.div`
+  height: auto;
+
+  @media (max-width: 767px) {
+    height: 620px !important;
+  }
+
+  .banner-inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .text-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+`;
 
 const Banner = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -19,36 +41,14 @@ const Banner = () => {
     if (windowWidth < 600) {
       return {
         maxWidth: "300px",
+        heigth: "600px !important",
       };
     }
   };
 
   return (
-    <div className="slider-wrapper relative" id="slider-1851130405">
-      <div
-        className="slider slider-nav-circle slider-nav-large slider-nav-light slider-style-normal"
-        data-flickity-options='{
-            "cellAlign": "center",
-            "imagesLoaded": true,
-            "lazyLoad": 1,
-            "freeScroll": false,
-            "wrapAround": true,
-            "autoPlay": false,
-            "pauseAutoPlayOnHover": false,
-            "prevNextButtons": true,
-            "contain": true,
-            "adaptiveHeight": true,
-            "dragThreshold": 10,
-            "percentPosition": true,
-            "pageDots": false,
-            "rightToLeft": false,
-            "draggable": true,
-            "selectedAttraction": 0.1,
-            "parallax": 0,
-            "friction": 0.6
-          }'
-      >
-        <div className="banner has-hover" id="banner-154701534">
+    <div className="banner slider-wrapper relative" id="slider-1851130405">
+        <BannerWrapper className="banner has-hover" id="banner-154701534">
           <div className="banner-inner fill">
             <div className="banner-bg fill">
               <div className="bg fill bg-fill"></div>
@@ -66,9 +66,7 @@ const Banner = () => {
                     <h3 className="uppercase">
                       <strong>Worldwide connectivity with a local power</strong>
                     </h3>
-                    <p style={{
-                      fontSize: "17px",
-                    }} >
+                    <p style={{ fontSize: "17px" }}>
                       Increase your competitiveness by taking advantage of our local direct routes
                       and global reach.<br />
                       Get highest quality of service at competitive pricing.<br />
@@ -80,8 +78,7 @@ const Banner = () => {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        </BannerWrapper>
     </div>
   );
 };
